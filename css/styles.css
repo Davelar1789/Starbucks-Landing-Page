@@ -1,6 +1,6 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -14,17 +14,9 @@ header {
   justify-content: space-between;
   width: 95%;
   margin: 10px auto;
+  z-index: 2; /* Increase z-index to place header above video */
+  color: yellow;
 }
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
 
 header .left-side a img {
   width: 80px;
@@ -32,6 +24,34 @@ header .left-side a img {
 
 header .right-side {
   display: flex;
+  color: yellow; /* Change header text color to yellow */
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Move the video behind the header */
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.left-side, .right-side {
+  position: relative;
+  z-index: 2;
 }
 
 /* Add these styles for the new sections and buttons */
@@ -71,10 +91,6 @@ header .right-side {
 }
 
 /* Add animation to the container */
-.container {
-  position: relative;
-}
-
 .container:before {
   content: '';
   position: absolute;
@@ -90,6 +106,7 @@ header .right-side {
   width: 100%;
   left: 0;
 }
+
 
 /* Add animation to the thumb images */
 .thumb img {
